@@ -5,7 +5,7 @@ public:
         if (c < 0) return false;
         long long left = 0;
         long long right = static_cast<long long>(sqrt(c));
-        
+
         while (left <= right) {
             long long product = left * left + right * right;
             if (product == c) {
@@ -24,7 +24,7 @@ public:
 /*
 class Solution {
 public:
-	bool judgeSquareSum(int c) {
+    bool judgeSquareSum(int c) {
         if (c < 0) return false;
         long long low = 0;
         long long high = static_cast<long long>(sqrt(c));
@@ -51,21 +51,28 @@ public:
 };
 
 */
-class Solution {
+class Solution
+{
 public:
-    bool judgeSquareSum(int c) {
-        for (int divisor = 2; divisor * divisor <= c; divisor++) {
-            if (c % divisor == 0) {
+    bool judgeSquareSum(int c)
+    {
+        for (int divisor = 2; divisor * divisor <= c; divisor++)
+        {
+            if (c % divisor == 0)
+            {
                 int exponentCount = 0;
-                while (c % divisor == 0) {
+                while (c % divisor == 0)
+                {
                     exponentCount++;
                     c /= divisor;
                 }
-                if (divisor % 4 == 3 && exponentCount % 2 != 0) {
+                if (divisor % 4 == 3 && exponentCount % 2 != 0)
+                {
                     return false;
                 }
             }
         }
         return c % 4 != 3;
-    }
+            
+    }
 };
